@@ -89,6 +89,12 @@ Route::get('/NewsAndEvents/event1', function () {
     return Inertia::render('eventpage');
 })->name('eventpage');
 
+// Test Route for git workflow
+
+Route::get('/test', function () {
+    return view("test");
+});
+
 
 
 
