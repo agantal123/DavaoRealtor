@@ -9,17 +9,23 @@
                                 <div class="items-center lg:flex">
                                     <div class="flex flex-col mt-4 space-y-8 lg:flex-row lg:items-center lg:mt-0 lg:space-y-0 lg:space-x-16">
                                         <!-- <a class="block font-medium text-white dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 hover:underline" href="#">Real Estate Topics</a> -->
-                                        <BreezeMainNavLink :href="route('topics')">
+                                        <!-- <BreezeMainNavLink :href="route('topics')">
                                            <a class="text-white"> Real Estate Topics </a>
-                                        </BreezeMainNavLink>
+                                        </BreezeMainNavLink> -->
                                         <BreezeMainNavLink :href="route('listings')">
-                                           <a class="text-white"> Listings </a>
+                                           <a class="text-white"> Listing Services </a>
                                         </BreezeMainNavLink>
                                         <BreezeMainNavLink :href="route('membership')">
                                          <a class="text-white"> Membership </a>  
                                         </BreezeMainNavLink>
+                                        <BreezeMainNavLink :href="route('membership')">
+                                         <a class="text-white"> Education </a>  
+                                        </BreezeMainNavLink>
                                         <BreezeMainNavLink :href="route('NewsAndEvents')">
                                          <a class="text-white"> News & Events </a>
+                                        </BreezeMainNavLink>
+                                        <BreezeMainNavLink :href="route('NewsAndEvents')">
+                                         <a class="text-white"> Forum </a>
                                         </BreezeMainNavLink>
                                     </div>
                                 </div>
