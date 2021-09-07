@@ -15,6 +15,17 @@
         </div>
 
         <div class="mt-4">
+            <label class="block mt-4">
+            <BreezeLabel for="user_role" value="User role" />
+            <select id="user_role" class="form-select mt-1 block w-full" v-model="form.user_role" >
+                <option value="1">Admin</option>
+                <option value="2">Broker</option>
+                <option value="3">Salesperson</option>
+            </select>
+            </label>
+        </div>
+        
+        <div class="mt-4">
             <BreezeLabel for="password" value="Password" />
             <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
         </div>
@@ -66,6 +77,7 @@ export default {
             form: this.$inertia.form({
                 name: '',
                 email: '',
+                user_role: '',
                 password: '',
                 password_confirmation: '',
                 terms: false,

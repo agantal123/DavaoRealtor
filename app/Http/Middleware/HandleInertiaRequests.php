@@ -36,7 +36,23 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
+                
+            'checkAdmin' => function () {
+                $user = auth()->user();
+                return $user ? [
+                        'adminUser' => $user->can('isAdmin')
+                ] : null;
+            },
             ],
+
+            //  return'adminUser' => [
+            //      'isAdmin' =>  $request->user()->can('isAdmin'),
+            //  ],
+          
+            
         ]);
+
+
+
     }
 }

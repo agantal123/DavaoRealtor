@@ -1,6 +1,6 @@
 <template>
     <Head title="Home" />
-        <template v-if="$page.props.auth.user" >
+        <template v-if="$page.props.auth.user">
             <div>
                 <div x-data="{ sidebarOpen: false, darkMode: false }" :class="{ 'dark': darkMode }">
                     <div class="flex min-h-screen max-w-7xl mx-auto bg-white dark:bg-gray-800 font-roboto">
@@ -20,14 +20,23 @@
                                     <BreezeDashboardNavLink :href="route('manageprofile')" :active="route().current('manageprofile')">
                                     Manage Profile
                                     </BreezeDashboardNavLink>
-                                    <BreezeDashboardNavLink :href="route('usertopics')" :active="route().current('usertopics')">
-                                    Topics
+                                    <BreezeDashboardNavLink v-if="$page.props.auth.checkAdmin.adminUser"  :href="route('managemembers')" :active="route().current('managemembers') ">
+                                    Members
                                     </BreezeDashboardNavLink>
+                                    <!-- <BreezeDashboardNavLink :href="route('usertopics')" :active="route().current('usertopics')">
+                                    Topics
+                                    </BreezeDashboardNavLink> -->
                                     <BreezeDashboardNavLink :href="route('userlistings')" :active="route().current('userlistings')">
                                     Listings
                                     </BreezeDashboardNavLink>
                                     <BreezeDashboardNavLink :href="route('user_supervising')" :active="route().current('user_supervising')">
                                     Supervision
+                                    </BreezeDashboardNavLink>
+                                    <BreezeDashboardNavLink v-if="$page.props.auth.checkAdmin.adminUser"  :href="route('managemembers')" :active="route().current('managemembers') ">
+                                    News
+                                    </BreezeDashboardNavLink>
+                                    <BreezeDashboardNavLink v-if="$page.props.auth.checkAdmin.adminUser"  :href="route('managemembers')" :active="route().current('managemembers') ">
+                                    Events
                                     </BreezeDashboardNavLink>
                             </nav>
                         </div>
@@ -63,7 +72,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
+             
          </template>
 </template>
 
@@ -83,5 +93,10 @@ export default {
         canLogin: Boolean,
         canRegister: Boolean,
     },
+     mounted()
+        {
+            var allPermissions = this.$page.props.auth;
+            console.log(allPermissions)
+        },
 }
 </script>

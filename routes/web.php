@@ -33,6 +33,14 @@ Route::get('/', function () {
     return Inertia::render('dashboardpages/manageprofile');
 })->middleware(['auth', 'verified'])->name('manageprofile');
 
+Route::get('/profile/members', function () {
+    return Inertia::render('dashboardpages/managemembers');
+})->middleware(['auth', 'verified'])->name('managemembers');
+
+Route::get('/profile/members/newmember', function () {
+    return Inertia::render('dashboardpages/createmember');
+})->middleware(['auth', 'verified'])->name('newmember');
+
 Route::get('/profile/topics', function () {
     return Inertia::render('dashboardpages/usertopics');
 })->middleware(['auth', 'verified'])->name('usertopics');
